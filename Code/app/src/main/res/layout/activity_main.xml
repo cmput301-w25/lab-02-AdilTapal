@@ -7,13 +7,95 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ListView
-        android:id="@+id/city_list"
+    <!-- App Name Display -->
+    <TextView
+        android:id="@+id/appName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="ListyCity"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Buttons container -->
+    <LinearLayout
+        android:id="@+id/button_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="10dp"
+        android:shape="rectangle"
+        app:layout_constraintTop_toBottomOf="@id/appName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- ADD CITY Button -->
+        <Button
+            android:id="@+id/addCityButton"
+            android:shape="rectangle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:text="ADD CITY" />
+
+        <!-- DELETE CITY Button -->
+        <Button
+            android:id="@+id/deleteCityButton"
+            android:layout_width="wrap_content"
+            android:shape="rectangle"
+            android:layout_height="wrap_content"
+            android:text="DELETE CITY" />
+    </LinearLayout>
+
+    <!-- ListView for cities -->
+    <ListView
+        android:id="@+id/city_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:choiceMode="singleChoice"
+        android:listSelector="@android:drawable/list_selector_background"
+        android:padding="20dp"
+        app:layout_constraintTop_toBottomOf="@id/button_container"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/input_container" />
+
+    <!-- Input field and confirm button container -->
+    <LinearLayout
+        android:id="@+id/input_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Text Input -->
+        <EditText
+            android:id="@+id/cityInputField"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Enter city name"
+            android:inputType="text"
+            android:padding="10dp" />
+
+        <!-- Confirm Button -->
+        <Button
+            android:id="@+id/confirmButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:shape="rectangle"
+            android:layout_marginStart="10dp"
+            android:text="CONFIRM" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
